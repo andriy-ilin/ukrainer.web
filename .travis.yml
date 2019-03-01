@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - node
+  - lts/*
+cache:
+  directories:
+    - ~/.npm
+env:
+  global:
+    - TRUNK_BRANCH="master"
+before_script:
+  - npm install -g npm@latest
+install:
+  - npm ci
+  - source ./ci/create-dotenv.sh
+script: skip
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run test:ci
+      # stage for build docker container
+    - stage: release
+      if: branch = env(TRUNK_BRANCH) AND type = push
+      script:
+        - source ./ci/prepare-release.sh || travis_terminate 1
+        - npm run release || travis_terminate 1
+        - git remote set-url origin https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+        - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
