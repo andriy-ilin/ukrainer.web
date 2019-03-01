@@ -4,6 +4,7 @@ import "firebase/auth";
 import { Form, Card, Input, Icon, Button, Row } from "antd";
 import { Router } from "@reach/router";
 import Home from "./pages/Home";
+import Orders from "./pages/Orders";
 import Lang from "./pages/Lang";
 import Users from "./pages/Users";
 import Layout from "./components/Layout/";
@@ -78,6 +79,7 @@ class LayoutWrapper extends Component {
       <Layout>
         <Router>
           <Home path="/" />
+          <Orders path="/orders" />
           <Users path="/users" />
           <Lang path="/lang" />
         </Router>
