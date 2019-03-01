@@ -30,6 +30,12 @@ class ApiService {
       .database()
       .ref(`${link}`)
       .set(data);
+
+  remove = ({ link }) =>
+    this.fb
+      .database()
+      .ref(`${link}`)
+      .remove();
 }
 
 export default new ApiService();
