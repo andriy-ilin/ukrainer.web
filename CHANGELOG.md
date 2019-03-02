@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.2.0...v0.3.0) (2019-03-02)
+
+
+### Features
+
+* popconfirm on delete actions ([b47e89d](https://github.com/andriy-ilin/ukrainer.web/commit/b47e89d))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2019-03-01)
 
