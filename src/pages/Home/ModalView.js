@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Form, Icon, Button, Modal } from "antd";
+import { Row, Col, Form, Icon, Button, Modal, message, Popconfirm } from "antd";
 import Box from "../../components/Box";
 import GridField, { InputField } from "../../components/GridField";
 
@@ -93,11 +93,21 @@ class DictionaryForm extends Component {
               }
             />
           </Col>
-
-          <Button type="danger" onClick={() => this.removeItem(index)}>
-            <Icon className="dynamic-delete-button" type="minus-circle-o" />
-            Delete
-          </Button>
+          <Popconfirm
+            title="Are you sure delete this?"
+            onConfirm={async () => {
+              await this.removeItem(index);
+              message.success("Delete success");
+            }}
+            onCancel={() => message.error("Delete cancel")}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button type="danger">
+              <Icon className="dynamic-delete-button" type="minus-circle-o" />
+              Delete
+            </Button>
+          </Popconfirm>
         </Row>
         <Box borderBottom="2px solid #eee" />
       </Box>

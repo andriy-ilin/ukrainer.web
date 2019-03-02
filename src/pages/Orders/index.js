@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import ReactJson from "react-json-view";
 
-import { Table, Button, Input, Icon, message } from "antd";
+import { Table, Button, Input, Icon, message, Popconfirm } from "antd";
 import Highlighter from "react-highlight-words";
 import Box from "../../components/Box";
 
@@ -94,7 +94,6 @@ class Orders extends Component {
     });
     await schema.Orders.set({ data: row, id: row.id });
     await this.setState({ orders: newData });
-    message.success("Success update order");
   };
 
   filterProps = dataIndex => ({
@@ -289,9 +288,20 @@ const columns = ({ handleDelete = () => {}, filterProps = {} }) => [
     dataIndex: "actions",
     delete: true,
     render: (actions, { id }) => (
-      <Button type="danger" size="small" onClick={() => handleDelete(id)}>
-        Delete
-      </Button>
+      <Popconfirm
+        title="Are you sure delete this?"
+        onConfirm={async () => {
+          await handleDelete(id);
+          message.success("Delete success");
+        }}
+        onCancel={() => message.error("Delete cancel")}
+        okText="Yes"
+        cancelText="No"
+      >
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Popconfirm>
     )
   }
 ];
