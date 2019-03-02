@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button, message } from "antd";
+import { Table, Button, message, Popconfirm } from "antd";
 import Box from "../../components/Box";
 
 import schema from "../../__schema__/";
@@ -23,7 +23,6 @@ class Lang extends Component {
     await schema.Lang.set({
       data: dataSource.filter(item => item.key !== key)
     });
-    message.success("Lang delete success");
   };
 
   handleAdd = () => {
@@ -114,9 +113,20 @@ const columns = ({ handleDelete = () => {} }) => [
     dataIndex: "actions",
     delete: true,
     render: (actions, { key }) => (
-      <Button type="danger" size="small" onClick={() => handleDelete(key)}>
-        Delete
-      </Button>
+      <Popconfirm
+        title="Are you sure delete this?"
+        onConfirm={async () => {
+          await handleDelete(key);
+          message.success("Delete success");
+        }}
+        onCancel={() => message.error("Delete cancel")}
+        okText="Yes"
+        cancelText="No"
+      >
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Popconfirm>
     )
   }
 ];
