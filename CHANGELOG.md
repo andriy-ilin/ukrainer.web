@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.4.0...v0.5.0) (2019-03-03)
+
+
+### Features
+
+* add CatalogArticles select component ([cd31fe5](https://github.com/andriy-ilin/ukrainer.web/commit/cd31fe5))
+* add page Video with add, edit, delete video ([3b5ca04](https://github.com/andriy-ilin/ukrainer.web/commit/3b5ca04))
+* add page VideoMap with add, edit, delete video ([5f6d7b3](https://github.com/andriy-ilin/ukrainer.web/commit/5f6d7b3))
+* add Tag, Toogle, Region select component ([3803265](https://github.com/andriy-ilin/ukrainer.web/commit/3803265))
+* use lru cache for api service ([38dafc6](https://github.com/andriy-ilin/ukrainer.web/commit/38dafc6))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.3.0...v0.4.0) (2019-03-02)
 
