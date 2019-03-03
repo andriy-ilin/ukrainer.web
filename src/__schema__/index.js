@@ -6,6 +6,7 @@ import Orders from "./Orders";
 import Region from "./Region";
 import Video from "./Video";
 import VideoMap from "./VideoMap";
+import Role from "./Role";
 
 export default {
   All,
@@ -15,5 +16,6 @@ export default {
   Users,
   Region,
   Video,
-  VideoMap
+  VideoMap,
+  Role
 };

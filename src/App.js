@@ -4,6 +4,7 @@ import "firebase/auth";
 import { Form, Card, Input, Icon, Button, Row } from "antd";
 import { Router } from "@reach/router";
 import Home from "./pages/Home";
+import Team from "./pages/Team";
 import Video from "./pages/Video";
 import VideoMap from "./pages/VideoMap";
 import Region from "./pages/Region";
@@ -82,6 +83,7 @@ class LayoutWrapper extends Component {
       <Layout>
         <Router>
           <Home path="/" />
+          <Team path="/team" />
           <Video path="/video" />
           <VideoMap path="/video-map" />
           <Region path="/region" />
