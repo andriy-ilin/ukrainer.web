@@ -11,18 +11,18 @@ class ApiService {
       .once("value")
       .then(res => res.val());
 
-  create = ({ data, model, link, successFn }) => {
-    const id = this.fb
+  create = async ({ data, link }) => {
+    const id = await this.fb
       .database()
       .ref(link)
       .push().key;
+    const dateAdd = new Date();
 
-    successFn({ id, data });
-
-    return this.fb
+    await this.fb
       .database()
       .ref(`${link}/${id}`)
-      .set(model);
+      .set({ ...data, id, dateAdd: dateAdd.toISOString() });
+    return { ...data, id, dateAdd: dateAdd.toISOString() };
   };
 
   createWithFullLink = ({ data, link }) =>
