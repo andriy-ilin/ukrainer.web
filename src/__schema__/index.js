@@ -4,6 +4,8 @@ import Lang from "./Lang";
 import Users from "./Users";
 import Orders from "./Orders";
 import Region from "./Region";
+import Video from "./Video";
+import VideoMap from "./VideoMap";
 
 export default {
   All,
@@ -11,5 +13,7 @@ export default {
   Lang,
   Orders,
   Users,
-  Region
+  Region,
+  Video,
+  VideoMap
 };
