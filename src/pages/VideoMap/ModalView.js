@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Form, Button, Modal } from "antd";
 import GridField, { InputField } from "../../components/GridField";
 import RegionSelect from "../../components/RegionSelect";
+import CatalogArticlesSelect from "../../components/CatalogArticlesSelect";
 import ToogleSelect from "../../components/ToogleSelect";
 
 export class NewVideoModal extends Component {
   render() {
-    const { data = {}, onSubmit, visible, closeModal } = this.props;
+    const { data = {}, onSubmit, visible, closeModal, lang } = this.props;
     return (
       <Modal
         title={"New Video"}
@@ -28,7 +29,7 @@ export class NewVideoModal extends Component {
           </Button>
         ]}
       >
-        <WrappedNewVideoForm data={data} onSubmit={onSubmit} />
+        <WrappedNewVideoForm data={data} onSubmit={onSubmit} lang={lang} />
       </Modal>
     );
   }
@@ -46,9 +47,11 @@ class NewVideoForm extends Component {
         latitude,
         longitude,
         region,
+        article,
         mapUrl,
         isActive
       },
+      lang,
       onSubmit = () => {},
       form: { getFieldDecorator, validateFields }
     } = this.props;
@@ -59,9 +62,10 @@ class NewVideoForm extends Component {
         id="video-form"
         onSubmit={async e => {
           e.preventDefault();
-          validateFields(async (err, values) => {
+          validateFields(async (err, { article, ...values }) => {
             if (!err) {
-              onSubmit({ ...data, ...values });
+              const { id } = JSON.parse(article);
+              onSubmit({ ...data, ...values, articleId: id });
             }
           });
         }}
@@ -148,6 +152,21 @@ class NewVideoForm extends Component {
               className="article-form-input"
               initialValue={region}
               value={region}
+              getFieldDecorator={getFieldDecorator}
+            />
+          }
+        />
+        <GridField
+          label="article"
+          labelSpan={6}
+          valueSpan={18}
+          value={
+            <CatalogArticlesSelect
+              lang={lang}
+              validateRules={[]}
+              className="article-form-input"
+              initialValue={article}
+              value={article}
               getFieldDecorator={getFieldDecorator}
             />
           }

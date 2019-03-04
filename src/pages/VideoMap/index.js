@@ -288,6 +288,14 @@ const columns = ({ handleDelete = () => {}, filterProps = {} }) => [
     width: 70
   },
   {
+    title: "articleId",
+    key: "articleId",
+    dataIndex: "articleId",
+    sorter: true,
+    editable: true,
+    width: 70
+  },
+  {
     title: "region",
     key: "region",
     dataIndex: "region",
