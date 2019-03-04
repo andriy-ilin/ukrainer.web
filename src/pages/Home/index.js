@@ -11,16 +11,18 @@ class Home extends Component {
     data: [],
     top: [],
     favorite: [],
+    job: [],
     modal: false
   };
 
   async componentDidMount() {
     const { lang } = this.state;
-    const { top, favorite } = await schema.Dictionary.get(lang);
+    const { top, favorite, job } = await schema.Dictionary.get(lang);
     const data = await schema.CatalogArticles.get(lang);
     return this.setState({
       top,
       favorite,
+      job,
       data: Object.values(data)
     });
   }
@@ -45,12 +47,13 @@ class Home extends Component {
 
   updateData = async () => {
     const { lang } = this.state;
-    const { top, favorite } = await schema.Dictionary.get(lang);
+    const { top, favorite, job } = await schema.Dictionary.get(lang);
     const data = await schema.CatalogArticles.get(lang);
 
     return this.setState({
       top,
       favorite,
+      job,
       data: Object.values(data)
     });
   };
@@ -66,7 +69,7 @@ class Home extends Component {
   };
 
   render() {
-    const { lang, top, favorite, data, modal } = this.state;
+    const { lang, top, job, favorite, data, modal } = this.state;
 
     return (
       <>
@@ -90,7 +93,7 @@ class Home extends Component {
 
         <Divider />
         <Row type="flex" justify="space-between">
-          <Col span={10}>
+          <Col span={8}>
             <Box mb={10}>
               <h2>List top stories</h2>
               <Button
@@ -115,7 +118,7 @@ class Home extends Component {
               );
             })}
           </Col>
-          <Col span={10}>
+          <Col span={8}>
             <Box mb={10}>
               <h2>List favorites stories</h2>
               <Button
@@ -140,9 +143,30 @@ class Home extends Component {
               );
             })}
           </Col>
+          <Col span={6}>
+            <Box mb={10}>
+              <h2>List jobs of persons</h2>
+              <Button
+                type="primary"
+                onClick={() => this.setState({ modal: "job" })}
+              >
+                Change list
+              </Button>
+            </Box>
+            {job.map((el, key) => {
+              return (
+                <div key={el}>
+                  <p>
+                    {key + 1}. {el}
+                  </p>
+                </div>
+              );
+            })}
+          </Col>
         </Row>
+
         <ModalDictionary
-          data={modal === "top" ? top : favorite}
+          data={modal === "top" ? top : modal === "favorite" ? favorite : job}
           visible={!!modal}
           listName={modal}
           onSubmit={this.handleSave}
