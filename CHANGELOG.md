@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.6.0...v0.7.0) (2019-03-04)
+
+
+### Features
+
+* add Job and Person select component which use cache ([5aa81cf](https://github.com/andriy-ilin/ukrainer.web/commit/5aa81cf))
+* add job block on Home page with add, remove, edit actions ([9ee43fa](https://github.com/andriy-ilin/ukrainer.web/commit/9ee43fa))
+* catalogArticles select in new videoMap form, for choose articleId ([572410b](https://github.com/andriy-ilin/ukrainer.web/commit/572410b))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.5.0...v0.6.0) (2019-03-04)
 
