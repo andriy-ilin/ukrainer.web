@@ -32,3 +32,15 @@
   margin-bottom: 15px;
   box-sizing: content-box;
 }
+
+.page__sidebar-logout {
+  margin-top: 100px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.page__sidebar-logout:hover {
+  opacity: 0.5;
+}

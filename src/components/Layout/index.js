@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import { Row } from "antd";
 import Logo from "../../icons/Logo";
+import Nav from "../Nav/";
 
 import "./style.css";
 
@@ -13,6 +14,16 @@ const Layout = ({ children, navigate, ...props }) => (
           <Logo />
         </Link>
       </Row>
+      <Nav />
+      <div
+        className="page__sidebar-logout"
+        onClick={() => {
+          localStorage.removeItem("ukrainer/user");
+          window.location.href = "/";
+        }}
+      >
+        Log out
+      </div>
     </div>
     <div className="page__content">{children}</div>
   </div>

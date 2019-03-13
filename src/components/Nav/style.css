@@ -1,0 +1,29 @@
+.nav {
+  margin-top: 100px;
+}
+
+.nav__item {
+  list-style: none;
+}
+
+.nav__link {
+  display: block;
+  margin: 0 0 0 -40px;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-left: 1px solid transparent;
+  color: #ffffff;
+  background: none;
+  text-decoration: none;
+}
+
+.nav__link:focus {
+  text-decoration: none;
+}
+
+.nav__link_state_current {
+  border-left: 1px solid #e8e8e8;
+  color: #234130;
+  background: #fff;
+}
