@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.7.0...v0.8.0) (2019-03-14)
+
+
+### Features
+
+* add navigation and logout on left sidebar ([28034c1](https://github.com/andriy-ilin/ukrainer.web/commit/28034c1))
+* add title to index.html and favicon ([9d585d9](https://github.com/andriy-ilin/ukrainer.web/commit/9d585d9))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/andriy-ilin/ukrainer.web/compare/v0.6.0...v0.7.0) (2019-03-04)
 
