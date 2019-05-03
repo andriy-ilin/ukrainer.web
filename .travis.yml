@@ -18,12 +18,6 @@ jobs:
     - stage: test
       script:
         - npm run test:ci
-    - stage: deploy
-      if: branch = env(TRUNK_BRANCH) AND type = push
-      script:
-        - CI=false npm run build
-        - source ./ci/install-aws.sh || travis_terminate 1
-        - aws s3 sync build/ "s3://$S3_BUCKET" --acl public-read --delete
     - stage: release
       if: branch = env(TRUNK_BRANCH) AND type = push
       script:
@@ -31,3 +25,10 @@ jobs:
         - npm run release || travis_terminate 1
         - git remote set-url origin https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
         - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
+    - stage: deploy
+      if: branch = env(TRUNK_BRANCH) AND type = push
+      script:
+        - CI=false npm run build
+        - source ./ci/install-aws.sh || travis_terminate 1
+        - aws s3 sync build/ "s3://$S3_BUCKET" --acl public-read --delete
+        - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
