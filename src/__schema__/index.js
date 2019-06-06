@@ -6,6 +6,9 @@ import Orders from "./Orders";
 import Region from "./Region";
 import Video from "./Video";
 import VideoMap from "./VideoMap";
+import Articles from "./Articles";
+import CatalogArticles from "./CatalogArticles";
+import CatalogShopItems from "./CatalogShopItems";
 import Role from "./Role";
 
 export default {
@@ -17,5 +20,8 @@ export default {
   Region,
   Video,
   VideoMap,
+  Articles,
+  CatalogArticles,
+  CatalogShopItems,
   Role
 };

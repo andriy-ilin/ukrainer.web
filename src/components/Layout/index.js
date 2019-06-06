@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { Row } from "antd";
+import Nav from "../Nav/";
 import Logo from "../../icons/Logo";
 import Nav from "../Nav/";
 

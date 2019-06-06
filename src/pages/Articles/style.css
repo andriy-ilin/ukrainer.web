@@ -1,0 +1,35 @@
+.article-form .ant-form-item {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.article-form-input {
+}
+
+.article-empty-row {
+  color: #00acff;
+}
+
+.article-grid {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.article-hidden-value {
+  letter-spacing: -1px;
+  font-size: 20px;
+  line-height: 14px;
+}
+
+.article-form-input-picker {
+  width: 100%;
+}
+.article-form-input .ant-select-selection .ant-select-selection__rendered {
+  line-height: 30px;
+}
+.verify-grid {
+  color: #000;
+}
+
+.article-form-input.ant-select {
+  min-width: 171px;
+}
