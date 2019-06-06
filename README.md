@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ukrainer web application
 
-## Available Scripts
+[![Travis](https://travis-ci.org/andriy-ilin/ukrainer.web.svg?branch=master)](https://travis-ci.org/andriy-ilin/ukrainer.web)
+[![Conventional Commits](https://img.shields.io/badge/Conventional_Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-In the project directory, you can run:
+## About Ukrainer
 
-### `npm start`
+Ukrainer, a new media project aimed to discover through a thorough research who we actually are and to share these discoveries. Ukrainer will share curious stories from obscure places, people, art, and food. Using what we’ve discovered, we will create a modern guide to Ukraine, translated into multiple languages.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About project
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Ukrainer.web - web enterprise application. Bootstrap with create react app, for administration (CRUD - operation) with:
 
-### `npm test`
+- articles
+- catalog articles
+- shop items
+- catalog of shop items
+- languages list
+- regions list
+- authors list
+- list of top articles
+- list of favorites articles
+- orders in online-shop
+- devices list with confirming push notifications
+- video and vlog list
+- map points list
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Before start you need follow next steps:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone repo `git clone https://github.com/andriy-ilin/ukrainer.web.git`
+2. Create file `.env` [List of variables](ENVIRONMENT.md).
+3. Install all dependencies `npm ci`
+4. Run application `npm start`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Running the tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Just write `npm run test:watch` for running tests with watcher.
+Or you can write `npm run test:ci` for running tests like CI stage before deploy.
 
-### `npm run eject`
+## Structure project `Ukrainer` and relative repo
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Admin web application - [ukrainer.web](https://github.com/andriy-ilin/ukrainer.web)
+2. Mobile application - [ukrainer.apl](https://github.com/andriy-ilin/ukrainer.apl)
+3. API (send push notifications) - [ukrainer.api](https://github.com/andriy-ilin/ukrainer.api)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project was bootstrapped with:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Create React App](https://github.com/facebook/create-react-app) - build tool (under the hood use: Webpack, Babel, ESLint, etc)
+- [antd](https://ant.design/) - A design system with values of Nature and Determinacy for better user experience of enterprise applications.
+- [Firebase](https://firebase.google.com/) - Development platform with Firebase Auth and Firebase Realtime Database services.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Please read [CONTRIBUTING.md](https://github.com/andriy-ilin/ukrainer.web/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors
 
-### Code Splitting
+- **Andriy Ilin** - _Initial work_ - [Github profile](https://github.com/andriy-ilin)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+See also the list of [contributors](https://github.com/andriy-ilin/ukrainer.web/contributors) who participated in this project.
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
