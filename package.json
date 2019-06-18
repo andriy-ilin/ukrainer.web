@@ -27,7 +27,9 @@
     "test": "react-scripts test",
     "test:ci": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "release": "standard-version -m \"chore(release): publish %s [skip ci]\""
+    "release": "standard-version -m \"chore(release): publish %s [skip ci]\"",
+    "now-build": "react-scripts build",
+    "now-dev": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -7,6 +7,7 @@ cache:
 env:
   global:
     - TRUNK_BRANCH="master"
+    - DEPLOY_TO="now"
 before_script:
   - npm i -g npm@6.2.0
 install:
@@ -26,9 +27,14 @@ jobs:
         - git remote set-url origin https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
         - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
     - stage: deploy
-      if: branch = env(TRUNK_BRANCH) AND type = push
+      if: branch = env(TRUNK_BRANCH) AND type = push AND DEPLOY_TO = 'aws'
       script:
         - CI=false npm run build
         - source ./ci/install-aws.sh || travis_terminate 1
         - aws s3 sync build/ "s3://$S3_BUCKET" --acl public-read --delete
         - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
+    - stage: deploy
+      if: env(DEPLOY_TO) = 'now'
+      script:
+        - npm install now --no-save
+        - now --token NOW_TOKEN && now alias --token NOW_TOKEN
