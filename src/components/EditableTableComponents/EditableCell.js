@@ -125,7 +125,8 @@ export default class EditableCell extends Component {
                         ? record[dataIndex].src
                         : record[dataIndex]
                   })(
-                    <Input
+                    <Input.TextArea
+                      autosize
                       ref={node => (this.input = node)}
                       onPressEnter={this.save}
                     />
