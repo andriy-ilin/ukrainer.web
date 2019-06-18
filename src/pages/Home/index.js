@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Button, message, Row, Col, Form, Divider } from "antd";
-import LangSelect from "../../components/LangSelect";
+import { Button, message, Row, Col, Divider } from "antd";
+import Lang from "../../components/Lang";
 import Box from "../../components/Box";
 import schema from "../../__schema__/";
 import { ModalDictionary } from "./ModalView";
@@ -79,18 +79,13 @@ class Home extends Component {
             Copy all DB
           </Button>
         </Box>
-        <Row type="flex">
-          <Box>Lang</Box>
-          <WrappedLangForm
-            initialValue={lang}
-            value={lang}
-            onChange={async lang => {
-              await this.setState({ lang });
-              await this.updateData();
-            }}
-          />
-        </Row>
-
+        <Lang
+          lang={lang}
+          onChange={async lang => {
+            await this.setState({ lang });
+            await this.updateData();
+          }}
+        />
         <Divider />
         <Row type="flex" justify="space-between">
           <Col span={8}>
@@ -176,10 +171,5 @@ class Home extends Component {
     );
   }
 }
-
-const LangForm = ({ form: { getFieldDecorator }, ...props }) => (
-  <LangSelect getFieldDecorator={getFieldDecorator} {...props} />
-);
-const WrappedLangForm = Form.create({ name: "lang" })(LangForm);
 
 export default Home;

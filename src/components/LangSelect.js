@@ -16,16 +16,16 @@ const LangSelect = ({
   const lang = [
     {
       key: "uk",
-      value: "Українська"
+      value: "українська"
     },
-    { key: "cz", value: "" },
-    { key: "de", value: "" },
-    { key: "el", value: "" },
-    { key: "en", value: "" },
-    { key: "fr", value: "" },
-    { key: "ka", value: "" },
-    { key: "pl", value: "" },
-    { key: "ru", value: "" }
+    { key: "cz", value: "česky" },
+    { key: "de", value: "deutsch" },
+    { key: "el", value: "ελληνικά" },
+    { key: "en", value: "english" },
+    { key: "fr", value: "francais" },
+    { key: "ka", value: "ქართული" },
+    { key: "pl", value: "polski" },
+    { key: "ru", value: "русский" }
   ];
   return (
     <Form.Item label={label} hideRequiredMark>
@@ -40,7 +40,7 @@ const LangSelect = ({
         >
           {lang.map(({ key, value }) => (
             <Select.Option key={key} value={key}>
-              {key} {value}
+              {key && key.toUpperCase()} - {value}
             </Select.Option>
           ))}
         </Select>

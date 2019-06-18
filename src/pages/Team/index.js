@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import { slugify } from "transliteration";
 
-import {
-  Popconfirm,
-  message,
-  Form,
-  Table,
-  Button,
-  Input,
-  Icon,
-  Row
-} from "antd";
+import { Popconfirm, message, Table, Button, Input, Icon } from "antd";
 import Highlighter from "react-highlight-words";
 import Box from "../../components/Box";
-import LangSelect from "../../components/LangSelect";
+import Lang from "../../components/Lang";
 import schema from "../../__schema__/";
 import EditableFormRow from "../../components/EditableTableComponents/EditableFormRow";
 import EditableCell from "../../components/EditableTableComponents/EditableCell";
@@ -252,17 +243,13 @@ class Team extends Component {
     return (
       <Box>
         <h1>Team</h1>
-        <Row type="flex">
-          <Box>Lang</Box>
-          <WrappedLangForm
-            initialValue={this.state.lang}
-            value={this.state.lang}
-            onChange={async lang => {
-              await this.setState({ lang });
-              await this.updateData();
-            }}
-          />
-        </Row>
+        <Lang
+          lang={this.state.lang}
+          onChange={async lang => {
+            await this.setState({ lang });
+            await this.updateData();
+          }}
+        />
         <Box my={10}>
           <Button
             type="primary"
@@ -426,8 +413,4 @@ const columns = ({
   }
 ];
 
-const LangForm = ({ form: { getFieldDecorator }, ...props }) => (
-  <LangSelect getFieldDecorator={getFieldDecorator} {...props} />
-);
-const WrappedLangForm = Form.create({ name: "person" })(LangForm);
 export default Team;

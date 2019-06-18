@@ -1,0 +1,9 @@
+.lang {
+  border-radius: 3px;
+  border: 1px solid #e8e8e8;
+  padding-top: 20px;
+}
+
+.lang__title {
+  text-transform: uppercase;
+}
